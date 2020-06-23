@@ -1,8 +1,10 @@
 import React, {Fragment} from "react";
+import {server} from "../lib/pageUrl";
 import Head from '../Component/Uility/NextHead'
 import NavIndex from "../Component/Navigation";
 
-const Home = () => {
+export default function Home ({global}) {
+console.log(global);
 
   return(
     <Fragment>
@@ -10,9 +12,24 @@ const Home = () => {
           <title>Create Next App</title>
           <link rel="icon" href="/favicon.ico"/>
       </Head>
-        <NavIndex />
+        <NavIndex logo={global.global.logo} title={global.global.title} nav={global.global.nav} />
     </Fragment>
   )
 }
 
-export default Home
+
+export async function getStaticProps(){
+
+    const res = await fetch(
+        `${server}/api/global`
+    )
+    const global = await res.json()
+
+
+    return {
+        props: {
+            global,
+        }
+    }
+}
+

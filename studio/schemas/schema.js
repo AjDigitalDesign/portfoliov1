@@ -10,6 +10,19 @@ import category from './category'
 import post from './post'
 import author from './author'
 
+//Object
+import link from "./object/link";
+import Hero from "./object/Hero";
+import homeAbout from "./object/homeAbout";
+import portableText from "./object/portableText";
+
+
+//Pages
+import homepage from "./pages/homepage";
+
+//Document
+import siteConfig from "./siteConfig";
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -19,6 +32,12 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
+    siteConfig,
+    Hero,
+    link,
+    homeAbout,
+    portableText,
+    homepage,
     post,
     author,
     category,

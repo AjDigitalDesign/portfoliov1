@@ -11,7 +11,7 @@ const NavIndex = (props) =>{
         <Fragment>
            <Burger open={open} setOpen={setOpen} />
            <BurgerMenu open={open} setOpen={setOpen} />
-           <DesktopMenu/>
+           <DesktopMenu logo={props.logo} title={props.title} navItem={props.navigation} />
         </Fragment>
     )
 }

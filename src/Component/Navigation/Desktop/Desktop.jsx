@@ -6,17 +6,17 @@ import styled from "styled-components";
 import {theme} from "../../../../style/theme";
 import useScrollTrigger from "@material-ui/core";
 import {StyledDesktop} from "./Desktop.styled";
-// import imageUrlBuilder from '@sanity/image-url'
-// import client from "../../../lib/client";
+import imageUrlBuilder from '@sanity/image-url'
+import client from "../../../lib/client";
 
-// const builder = imageUrlBuilder(client)
-//
-// function urlFor(source) {
-//     return builder.image(source)
-// }
+const builder = imageUrlBuilder(client)
+
+function urlFor(source) {
+    return builder.image(source)
+}
 
 
-const DesktopMenu = () => {
+const DesktopMenu = (props) => {
 
     const router = useRouter();
     let menuList = [
@@ -51,9 +51,13 @@ const DesktopMenu = () => {
             <Container>
                 <div className="navbar-area">
                     <div className="navbar-brand-area">
-                            <a className="home">
-
-                            </a>
+                        <a title={props.title} className="home">
+                            <img
+                                src={urlFor(props.logo)
+                                    .width(200)
+                                    .url()}
+                            />
+                        </a>
                     </div>
                     <div className="navbar-menu">
                         <ul className="menu-item">

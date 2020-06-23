@@ -2,7 +2,8 @@ import styled from "styled-components";
 import {theme} from "../../../../style/theme";
 
 export const StyledDesktop = styled.div`
-padding: 10px 0;
+
+  padding: 10px 0;
    position: fixed;
    top: 0;
    z-index: 9;
