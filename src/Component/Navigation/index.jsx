@@ -5,8 +5,6 @@ import DesktopMenu from "./Desktop";
 
 
 const NavIndex = (props) =>{
-    console.log(props);
-
 
     const [open, setOpen] = useState(false);
     return(
