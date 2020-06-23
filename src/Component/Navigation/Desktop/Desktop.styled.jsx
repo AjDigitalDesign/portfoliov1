@@ -33,6 +33,7 @@ export const StyledDesktop = styled.div`
         }
       }
     }
+    
     .navbar-menu{
       ul{
         list-style: none;

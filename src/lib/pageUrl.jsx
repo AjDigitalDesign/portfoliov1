@@ -1,3 +1,8 @@
-const dev = process.env.NODE_ENV !== 'production';
+import fetch from "isomorphic-unfetch";
 
-export const server = dev ? 'http://localhost:3000' : '';
+export function serverUrl(ctx) {
+    const prefix = process.env.NODE_ENV !== 'production' ? 'http://' : '//';
+    const host =
+        typeof window !== 'undefined' ? '' : `${prefix}${ctx.req.headers.host}`;
+    return `${host}`;
+}

@@ -5,13 +5,15 @@ import DesktopMenu from "./Desktop";
 
 
 const NavIndex = (props) =>{
+    console.log(props);
+
 
     const [open, setOpen] = useState(false);
     return(
         <Fragment>
            <Burger open={open} setOpen={setOpen} />
            <BurgerMenu open={open} setOpen={setOpen} />
-           <DesktopMenu logo={props.logo} title={props.title} navItem={props.navigation} />
+           <DesktopMenu logo={props.logo}  />
         </Fragment>
     )
 }

@@ -1,35 +1,33 @@
 import React, {Fragment} from "react";
-import {server} from "../lib/pageUrl";
+import {serverUrl} from "../lib/pageUrl";
+import {NextPageContext} from "next";
 import Head from '../Component/Uility/NextHead'
 import NavIndex from "../Component/Navigation";
 
-export default function Home ({global}) {
-console.log(global);
-
+const Home = props => {
+// console.log(props.global.logo);
   return(
     <Fragment>
       <Head>
           <title>Create Next App</title>
           <link rel="icon" href="/favicon.ico"/>
       </Head>
-        <NavIndex logo={global.global.logo} title={global.global.title} nav={global.global.nav} />
+        <NavIndex logo={props.global.logo} title={props.global.title}  />
     </Fragment>
   )
 }
 
+Home.getInitialProps = async (ctx) => {
+    const {slug} = ctx.query;
 
-export async function getStaticProps(){
+    const url = await serverUrl(ctx);
 
-    const res = await fetch(
-        `${server}/api/global`
-    )
-    const global = await res.json()
+    const global = await fetch(
+        `${url}/api/global`
+    ).then(res => res.json());
 
-
-    return {
-        props: {
-            global,
-        }
-    }
+    return { ...global}
 }
 
+
+export default Home;

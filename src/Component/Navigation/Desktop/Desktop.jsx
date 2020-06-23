@@ -17,6 +17,7 @@ function urlFor(source) {
 
 
 const DesktopMenu = (props) => {
+console.log(props);
 
     const router = useRouter();
     let menuList = [

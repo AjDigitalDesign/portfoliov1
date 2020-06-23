@@ -1,7 +1,9 @@
 // Burger.styled.js
 import styled from 'styled-components';
 
+
 export const StyledBurger = styled.div`
+
   position: fixed;
   top: 3%;
   right: 24px;
@@ -22,6 +24,7 @@ export const StyledBurger = styled.div`
   &:focus {
     outline: none;
   }
+  
   
 div {
     width: 2rem;
